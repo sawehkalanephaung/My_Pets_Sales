@@ -18,6 +18,12 @@ public class HomeController : Controller
         return View();
     }
 
+    // add the dashboard action
+    public IActionResult Dashboard()
+    {
+        return View();
+    }
+
     public IActionResult Privacy()
     {
         return View();
