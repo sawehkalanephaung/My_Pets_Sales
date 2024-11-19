@@ -1,0 +1,39 @@
+﻿@model List<Pet>
+@{
+    ViewData["Title"] = "Daily Sales";
+}
+
+<div class="container-fluid background">
+    <h1>Daily Sales Summary</h1>
+
+    <div class="container mt-4">
+        <h2>Sales Data Table</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Animal</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var sale in Model)
+                {
+                    <tr>
+                        <td>@sale.Date</td>
+                        <td>@sale.Animal</td>
+                        <td>@sale.Price.ToString("N2")</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@section Styles {
+    <style>
+        .background {
+            margin-top: 80px;
+        }
+    </style>
+}
