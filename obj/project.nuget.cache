@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "WdcUTHPMlk8=",
+  "dgSpecHash": "J+YoEtWXPYw=",
   "success": true,
   "projectFilePath": "/Users/saw/My_Pets_Sales/My_Pets_Sales.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/Users/saw/.nuget/packages/newtonsoft.json/13.0.3/newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
   "logs": []
 }

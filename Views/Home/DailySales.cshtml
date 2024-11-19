@@ -1,41 +1,28 @@
-﻿@using System.Globalization
-@model List<Pet>
+﻿@model List<Pet>
 
 @{
     ViewData["Title"] = "Daily Sales";
 }
 
-<div class="container-fluid background">
-    <h1>Daily Sales Summary</h1>
-
-    <div class="container mt-4">
-        <h2>Sales Data Table</h2>
-        <table class="table table-striped">
-            <thead>
+<div class="container-fluid mt-4">
+    <h2>Daily Sales Summary</h2>
+    <table class="table table-striped text-black">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Animal</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var pet in Model)
+            {
                 <tr>
-                    <th>Date</th>
-                    <th>Animal</th>
-                    <th>Price</th>
+                    <td>@pet.Date</td>
+                    <td>@pet.Animal</td>
+                    <td>@pet.Price.ToString("N2")</td>
                 </tr>
-            </thead>
-            <tbody>
-                @foreach (var sale in Model)
-                {
-                    <tr>
-                        <td>@sale.Date</td>
-                        <td>@sale.Animal</td>
-                        <td>@Convert.ToDecimal(sale.Price).ToString("C", CultureInfo.CurrentCulture)</td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-    </div>    </div>
+            }
+        </tbody>
+    </table>
 </div>
-
-@section Styles {
-    <style>
-        .background {
-            margin-top: 80px;
-        }
-    </style>
-}

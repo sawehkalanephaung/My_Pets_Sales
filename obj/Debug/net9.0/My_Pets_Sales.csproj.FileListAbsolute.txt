@@ -96,3 +96,6 @@
 /Users/saw/My_Pets_Sales/obj/Debug/net9.0/ref/My_Pets_Sales.dll
 /Users/saw/My_Pets_Sales/obj/Debug/net9.0/compressed/aubld81uwq-y0wab0ka0p.gz
 /Users/saw/My_Pets_Sales/obj/Debug/net9.0/compressed/vj5yyo63i8-l7gf3nx61j.gz
+/Users/saw/My_Pets_Sales/bin/Debug/net9.0/Newtonsoft.Json.dll
+/Users/saw/My_Pets_Sales/obj/Debug/net9.0/My_Pets_Sales.csproj.AssemblyReference.cache
+/Users/saw/My_Pets_Sales/obj/Debug/net9.0/My_Pets_.B88C6ACE.Up2Date

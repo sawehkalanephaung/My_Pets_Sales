@@ -5,6 +5,9 @@ using My_Pets_Sales.Models;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
+using System.Collections.Generic;
+using Newtonsoft.Json;
+
 
 namespace My_Pets_Sales.Controllers;
 
@@ -17,39 +20,39 @@ public class HomeController : Controller
     public HomeController(ILogger<HomeController> logger, IHttpClientFactory httpClientFactory)
     {
         _logger = logger;
-          _httpClient = httpClientFactory.CreateClient();
+        _httpClient = httpClientFactory.CreateClient();
     }
 
-// make sure  correctly fetching the data and passing it to the view.
-   public async Task<IActionResult> Dashboard()
+  
+    
+
+public async Task<IActionResult> Dashboard()
+{
+    var client = new HttpClient();
+
+    // Fetch daily sales data
+    var dailyRequest = new HttpRequestMessage(HttpMethod.Get, "https://www.melivecode.com/api/pets/2023-01-01");
+    var dailyResponse = await client.SendAsync(dailyRequest);
+    dailyResponse.EnsureSuccessStatusCode();
+    var dailyJsonString = await dailyResponse.Content.ReadAsStringAsync();
+    var dailySales = JsonConvert.DeserializeObject<List<Pet>>(dailyJsonString);
+
+    // Fetch weekly sales data
+    var weeklyRequest = new HttpRequestMessage(HttpMethod.Get, "https://www.melivecode.com/api/pets/7days/2023-01-01");
+    var weeklyResponse = await client.SendAsync(weeklyRequest);
+    weeklyResponse.EnsureSuccessStatusCode();
+    var weeklyJsonString = await weeklyResponse.Content.ReadAsStringAsync();
+    var weeklySales = JsonConvert.DeserializeObject<WeeklySalesData>(weeklyJsonString);
+
+    var viewModel = new DashboardViewModel
     {
-        try
-        {
-            var response = await _httpClient.GetAsync("https://www.melivecode.com/api/pets/2023-01-01");
-            if (response.IsSuccessStatusCode)
-            {
-                var content = await response.Content.ReadAsStringAsync();
-                // Log the API response for debugging
-                _logger.LogInformation("API Response: {Content}", content);
-                // Deserialize the JSON response with case-insensitivity
-                var pets = JsonSerializer.Deserialize<List<Pet>>(content, new JsonSerializerOptions
-                {
-                    PropertyNameCaseInsensitive = true
-                });
+        DailySales = dailySales,
+        WeeklySales = weeklySales
+    };
 
-                return View(pets);
-            }
-            else
-            {
-                _logger.LogWarning("Failed to fetch data: {StatusCode}", response.StatusCode);
-            }
-        }
-        catch (Exception ex)
-        {
-            _logger.LogError(ex, "Error fetching pet data");
-        }
-        return View(new List<Pet>());
-    }
+    return View("Dashboard", viewModel); // Ensure the correct view is specified
+}
+
 
 
     public IActionResult Index()
