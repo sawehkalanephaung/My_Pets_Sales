@@ -9,7 +9,7 @@
 
 public class Pet
     {
-        public int Date { get; set; }
-        public string Animal { get; set; }
-        public string Price { get; set; }
+        public string Date { get; set; } = string.Empty;
+        public string Animal { get; set; } = string.Empty;
+        public decimal Price { get; set; }
     }

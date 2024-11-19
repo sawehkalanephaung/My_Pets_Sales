@@ -4,13 +4,13 @@
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\site.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-L9EvOWI2n2iThbiS3Jkix8Xyxj7F19Kn\u002BE0rTFi0PVQ="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"2391"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022L9EvOWI2n2iThbiS3Jkix8Xyxj7F19Kn\u002BE0rTFi0PVQ=\u0022"},{"Name":"Last-Modified","Value":"Mon, 18 Nov 2024 17:05:13 GMT"}]]]></ResponseHeaders>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"2391"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022L9EvOWI2n2iThbiS3Jkix8Xyxj7F19Kn\u002BE0rTFi0PVQ=\u0022"},{"Name":"Last-Modified","Value":"Tue, 19 Nov 2024 04:30:41 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/My_Pets_Sales/css/site.l7gf3nx61j.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\site.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"l7gf3nx61j"},{"Name":"integrity","Value":"sha256-L9EvOWI2n2iThbiS3Jkix8Xyxj7F19Kn\u002BE0rTFi0PVQ="},{"Name":"label","Value":"_content/My_Pets_Sales/css/site.css"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"2391"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022L9EvOWI2n2iThbiS3Jkix8Xyxj7F19Kn\u002BE0rTFi0PVQ=\u0022"},{"Name":"Last-Modified","Value":"Mon, 18 Nov 2024 17:05:13 GMT"}]]]></ResponseHeaders>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"2391"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022L9EvOWI2n2iThbiS3Jkix8Xyxj7F19Kn\u002BE0rTFi0PVQ=\u0022"},{"Name":"Last-Modified","Value":"Tue, 19 Nov 2024 04:30:41 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/My_Pets_Sales/favicon.61n19gt1b8.ico">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\favicon.ico'))</AssetFile>

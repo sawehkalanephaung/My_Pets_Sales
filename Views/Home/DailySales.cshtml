@@ -1,4 +1,6 @@
-﻿@model List<Pet>
+﻿@using System.Globalization
+@model List<Pet>
+
 @{
     ViewData["Title"] = "Daily Sales";
 }
@@ -22,12 +24,12 @@
                     <tr>
                         <td>@sale.Date</td>
                         <td>@sale.Animal</td>
-                        <td>@sale.Price.ToString("N2")</td>
+                        <td>@Convert.ToDecimal(sale.Price).ToString("C", CultureInfo.CurrentCulture)</td>
                     </tr>
                 }
             </tbody>
         </table>
-    </div>
+    </div>    </div>
 </div>
 
 @section Styles {
