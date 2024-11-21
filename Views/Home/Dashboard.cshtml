@@ -4,21 +4,46 @@
     ViewData["Title"] = "Dashboard";
 }
 
+@{
+    var colors = new List<(string BackgroundColor, string BorderColor)>
+    {
+        ("rgba(255, 99, 132, 0.2)", "rgb(255, 99, 132)"), 
+        ("rgba(54, 162, 235, 0.2)", "rgb(54, 162, 235)"), 
+        // Add more colors as needed
+    };
+}
+
 <div class="container-fluid mt-4">
+    <h2 class="mb-4">Dashboard</h2>
     <div class="row">
         <!-- Daily Sales -->
         <div class="col-12 col-lg-6 mb-4">
-            <h2>Daily Sales Summary</h2>
-            <!-- Line Chart -->
-            <canvas id="dailySalesChart"></canvas>
+            <div class="card">
+                <div class="card-header">
+                    Pets Daily Sales
+                </div>
+                <div class="card-body">
+                    <div class="chart-container">
+                        <canvas id="dailySalesChart"></canvas>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- Weekly Sales -->
         <div class="col-12 col-lg-6 mb-4">
-            <h2>Weekly Sales Summary</h2>
-            <!-- Bar Chart -->
-            <canvas id="weeklySalesChart"></canvas>
+            <div class="card">
+                <div class="card-header">
+                    Pets Weekly Sales 
+                </div>
+                <div class="card-body">
+                    <div class="chart-container">
+                        <canvas id="weeklySalesChart"></canvas>
+                    </div>
+                </div>
+            </div>
         </div>
+    
     </div>
 </div>
 
@@ -42,6 +67,19 @@
                 },
                 options: {
                     responsive: true,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Daily Sales Overview',
+                            font: {
+                                size: 18
+                            },
+                            padding: {
+                                top: 10,
+                                bottom: 30
+                            }
+                        }
+                    },
                     scales: {
                         x: {
                             title: {
@@ -66,13 +104,15 @@
                 data: {
                     labels: @Html.Raw(Json.Serialize(Model.WeeklySales.Categories)),
                     datasets: [
-                        @foreach (var series in Model.WeeklySales.Series)
+                        @for (int i = 0; i < Model.WeeklySales.Series.Count; i++)
                         {
+                            var series = Model.WeeklySales.Series[i];
+                            var color = colors[i % colors.Count];
                             @:@Json.Serialize(new {
                                 label = series.Name,
                                 data = series.Data,
-                                backgroundColor = series.Name == "Dog" ? "rgba(255, 99, 132, 0.2)" : "rgba(153, 102, 255, 0.2)",
-                                borderColor = series.Name == "Dog" ? "rgb(255, 99, 132)" : "rgb(153, 102, 255)",
+                                backgroundColor = color.BackgroundColor,
+                                borderColor = color.BorderColor,
                                 borderWidth = 1
                             }),
                         }
@@ -80,6 +120,19 @@
                 },
                 options: {
                     responsive: true,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Weekly Sales Overview',
+                            font: {
+                                size: 18
+                            },
+                            padding: {
+                                top: 10,
+                                bottom: 30
+                            }
+                        }
+                    },
                     scales: {
                         x: {
                             title: {
@@ -96,7 +149,10 @@
                         }
                     }
                 }
-            });
+            }); //# end
+
+
+
         });
     </script>
 }
