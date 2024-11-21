@@ -35,7 +35,7 @@ public async Task<IActionResult> Dashboard()
     var dailyResponse = await client.SendAsync(dailyRequest);
     dailyResponse.EnsureSuccessStatusCode();
     var dailyJsonString = await dailyResponse.Content.ReadAsStringAsync();
-    var dailySales = JsonConvert.DeserializeObject<List<Pet>>(dailyJsonString);
+    var dailySales = JsonConvert.DeserializeObject<List<DailySalesData>>(dailyJsonString);
 
     // Fetch weekly sales data
     var weeklyRequest = new HttpRequestMessage(HttpMethod.Get, "https://www.melivecode.com/api/pets/7days/2023-01-01");
